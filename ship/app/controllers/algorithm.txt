@@ -1,0 +1,21 @@
+available_boats=Boat.where(location: params[:location])
+same_destination_boats=available_boats.filter(function(boat){
+  job=boat.jobs.where(destination: params[destination])
+  return job.length > 0
+  })
+if same_destination_boats.length < 1
+available_boats.filter!(function(boat){
+  return boat.jobs.length == 0
+  })
+else
+available_boats=same_destination_boats
+end
+available_boats.filter!(function(boat){
+
+  return boat.remaining_capacity > 0
+  })
+containers=params[:containers]
+if available_boats==same_destination_boats
+
+else
+end
