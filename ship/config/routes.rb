@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   get 'locations/index'
 
+  post '/login', to: 'logins#index'
+
   get 'locations/show'
 
   get 'locations/create'
